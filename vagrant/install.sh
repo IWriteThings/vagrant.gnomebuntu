@@ -21,6 +21,8 @@ sudo apt-get -y install \
 	figlet \
 	curl \
 	git \
+	youtube-dl \
+	xclip \
 	htop \
 	unzip \
 	vim; > /dev/null
