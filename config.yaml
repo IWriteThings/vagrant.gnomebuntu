@@ -1,0 +1,10 @@
+---
+  name: Ubuntu VB
+  hostname: vbox-ubuntu
+  box: ubuntu/trusty64/gnome
+  gui: true
+  ram: 4256
+  vram: 128
+  cpus: 2
+  ip: 192.168.66.10
+  x11forward: true
