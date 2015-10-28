@@ -18,6 +18,7 @@ sudo apt-get -y install \
 	newsbeuter \
 	rtorrent \
 	cmus \
+	figlet \
 	curl \
 	git \
 	htop \
@@ -50,9 +51,7 @@ sudo git clone https://github.com/powerline/fonts.git /tmp/fonts
 
 ## CPU LOAD
 sudo git clone https://github.com/thewtex/tmux-mem-cpu-load.git /tmp/tmuxcpu
-sudo cmake /tmp/tmuxcpu
-sudo make clean /tmp/tmuxcpu
-sudo make install clean /tmp/tmuxcpu
+sudo sh -c "cd /tmp/tmuxcpu && sudo cmake . && sudo make && sudo make install";
 # Plugin Manager for TMUX
 git clone https://github.com/tmux-plugins/tpm /home/vagrant/.tmux/plugins/tpm
 # Add hub to path

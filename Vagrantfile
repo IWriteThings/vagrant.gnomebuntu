@@ -31,6 +31,6 @@ Vagrant.configure(2) do |config|
 	# Any final thoughts?
     config.vm.provision "shell", run: "always" do |s|
 		# ending message
-        #s.inline = "figlet All Done!!"
+        s.inline = "figlet All Done!!"
     end
 end
