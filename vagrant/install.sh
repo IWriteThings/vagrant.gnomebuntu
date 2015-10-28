@@ -49,7 +49,7 @@ sudo apt-get install -y tmux
 tmux -V
 
 # Download fonts
-sudo git clone https://github.com/powerline/fonts.git /tmp/fonts
+sudo git clone https://github.com/powerline/fonts.git /tmp/fonts && su -c "sh /tmp/fonts/install.sh" vagrant
 
 ## CPU LOAD
 sudo git clone https://github.com/thewtex/tmux-mem-cpu-load.git /tmp/tmuxcpu
@@ -81,9 +81,6 @@ if [ ! -d "/home/vagrant/.dotfiles" ]; then
 	# Install YCM
 	su -c "/home/vagrant/.vim/bundle/YouCompleteMe/install.py" vagrant
 fi
-
-# Install custom fonts
-sudo sh /tmp/fonts/install.sh
 
 # Remove any holds by root in vagrant home
 sudo chown -R vagrant:vagrant /home/vagrant
