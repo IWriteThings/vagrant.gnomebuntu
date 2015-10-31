@@ -1,3 +1,21 @@
+module OS
+	def OS.windows?
+		(/cygwin|mswin|mingw|bccwin|wince|emx/ =~ RUBY_PLATFORM) != nil
+	end
+
+	def OS.mac?
+		(/darwin/ =~ RUBY_PLATFORM) != nil
+	end
+
+	def OS.unix?
+		!OS.windows?
+	end
+
+	def OS.linux?
+		OS.unix? and not OS.mac?
+	end
+end
+
 # Require YAML module
 require 'yaml'
 # Read YAML file with box details
@@ -19,7 +37,12 @@ Vagrant.configure(2) do |config|
         vb.cpus = configuration["cpus"]
         vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
 		# choices: hda sb16 ac97
-		vb.customize ["modifyvm", :id, '--audio', 'coreaudio', '--audiocontroller', 'hda']
+		if OS.windows?
+			vb.customize ["modifyvm", :id, '--audio', 'dsound', '--audiocontroller', 'hda']
+		end
+		if OS.mac?
+			vb.customize ["modifyvm", :id, '--audio', 'coreaudio', '--audiocontroller', 'hda']
+		end
 		# Set the VRAM
 		vb.customize ["modifyvm", :id, '--vram', configuration["vram"] ]
     end

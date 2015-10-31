@@ -27,8 +27,10 @@ sudo apt-get -y install \
 	unzip \
 	vim; > /dev/null
 
+# Developer Tools
 sudo apt-get -y install \
 	build-essential \
+	default-jre \
 	ruby \
 	cmake \
 	python-dev \
@@ -72,7 +74,7 @@ if [ ! -d "/home/vagrant/.dotfiles" ]; then
 	ln -s /home/vagrant/.dotfiles/.dircolors /home/vagrant/
 	ln -s /home/vagrant/.dotfiles/.profile /home/vagrant/
 	ln -s /home/vagrant/.dotfiles/.vimrc /home/vagrant/
-	ln -s /home/vagrant/.dotfiles/urls /home/vagrant/.newsbeuter/
+	ln -s /home/vagrant/.dotfiles/newsbeuter/urls /home/vagrant/.newsbeuter/
 	git clone https://github.com/VundleVim/Vundle.vim.git /home/vagrant/.vim/bundle/Vundle.vim
 	tmux source /home/vagrant/.tmux.conf
 	sudo chown -R vagrant:vagrant /home/vagrant/.vim
@@ -81,6 +83,9 @@ if [ ! -d "/home/vagrant/.dotfiles" ]; then
 	# Install YCM
 	su -c "/home/vagrant/.vim/bundle/YouCompleteMe/install.py" vagrant
 fi
+
+# Install LanguageTool
+sudo sh -c "cd /tmp/ && sudo wget https://languagetool.org/download/LanguageTool-stable.zip && sudo unzip LanguageTool-stable.zip && sudo rm LanguageTool-stable.zip && sudo mv LanguageTool-* /home/vagrant/.vim/LanguageTool"
 
 # Remove any holds by root in vagrant home
 sudo chown -R vagrant:vagrant /home/vagrant
