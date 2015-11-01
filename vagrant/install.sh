@@ -87,8 +87,7 @@ sudo apt-get -y install \
 	libvorbis-dev \
 	libphysfs-dev; >> /dev/null
 sudo git clone https://github.com/liballeg/allegro5.git /tmp/allegroGL
-sudo sh -c "cd /tmp/allegroGL && sudo mkdir build && cd build && sudo cmake .. && sudo make && sudo make install"
-sudo ldconfig
+sudo sh -c "cd /tmp/allegroGL && sudo mkdir build && cd build && sudo cmake .. && sudo make && sudo make install && sudo ldconfig"
 # Compile your allegro applications using
 # g++ [source file(s)] -o [output] `pkg-config --libs allegro-5.0`
 
