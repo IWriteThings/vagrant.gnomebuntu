@@ -33,6 +33,8 @@ sudo apt-get -y install \
 	default-jre \
 	ruby \
 	cmake \
+	make \
+	g++ \
 	python-dev \
 	automake \
 	autoconf \
@@ -61,6 +63,31 @@ git clone https://github.com/tmux-plugins/tpm /home/vagrant/.tmux/plugins/tpm
 # Add hub to path
 sudo curl https://hub.github.com/standalone -Lo /usr/bin/hub
 sudo chmod 755 /usr/bin/hub
+
+# https://www.allegro.cc/manual/
+# Add the Allegro Game Programming Library for C++
+sudo apt-get -y install \
+	libgl1-mesa-dev \
+	libglu1-mesa-dev \
+	libxcursor-dev \
+	freeglut3-dev \
+	libxcursor-dev \
+	libpng12-dev \
+	libjpeg-dev \
+	libfreetype6-dev \
+	libgtk2.0-dev \
+	libasound2-dev \
+	libpulse-dev \
+	libopenal-dev \
+	libflac-dev \
+	libdumb1-dev \
+	libvorbis-dev \
+	libphysfs-dev; >> /dev/null
+sudo git clone https://github.com/liballeg/allegro5.git /tmp/allegroGL
+sudo sh -c "cd /tmp/allegroGL && sudo mkdir build && cd build && sudo cmake .. && sudo make && sudo make install"
+sudo ldconfig
+# Compile your allegro applications using
+# g++ [source file(s)] -o [output] `pkg-config --libs allegro-5.0`
 
 echo "Installing dotfiles!"
 # dotfile time!
