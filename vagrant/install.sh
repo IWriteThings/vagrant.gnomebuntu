@@ -11,6 +11,9 @@ sudo apt-get -y upgrade > /dev/null
 sudo apt-get -y dist-upgrade > /dev/null
 echo "Upgrade complete!"
 
+# Never use flashplugin-installer
+sudo apt-get -y remove flashplugin-installer
+
 # Install Initial Software
 echo "Installing software from the repositories..."
 sudo apt-get -y install \

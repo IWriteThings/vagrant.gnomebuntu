@@ -1,3 +1,7 @@
+# Require YAML module
+require 'yaml'
+
+# Check for operating system
 module OS
 	def OS.windows?
 		(/cygwin|mswin|mingw|bccwin|wince|emx/ =~ RUBY_PLATFORM) != nil
@@ -16,8 +20,6 @@ module OS
 	end
 end
 
-# Require YAML module
-require 'yaml'
 # Read YAML file with box details
 configuration = YAML.load_file('config.yaml')
 Vagrant.require_version '>= 1.6.0'
