@@ -121,3 +121,6 @@ sudo chown -R vagrant:vagrant /home/vagrant
 
 ## Autostart Guake on boot
 sudo cp /usr/share/applications/guake.desktop /etc/xdg/autostart/
+
+# Install Octopress
+sudo gem install octopress
